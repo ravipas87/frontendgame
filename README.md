@@ -52,7 +52,7 @@ Please implement this as an Application (preferably with a Spring Boot Backend a
 1. Download the repos
 
 - **(backend 1)**: https://github.com/ravipas87/backendgame
-- **(backend 2)**: https://github.com/ravipas87/frontendgame
+- **(backend 2)**: https://github.com/ravipas87/stats_service
 - **(frontend)**: https://github.com/ravipas87/frontendgame
 
 2. install and run backend
@@ -87,13 +87,13 @@ Please implement this as an Application (preferably with a Spring Boot Backend a
 
 ![alt text](./readme_assets/mf.png)
 ![alt text](./readme_assets/mf2.png)
-![alt text](./readme_assets/mf3.png)
-![alt text](./readme_assets/mf4.png)
-![alt text](./readme_assets/mf5.png)
+![alt text](./readme_assets/mf3.PNG)
+![alt text](./readme_assets/mf4.PNG)
+![alt text](./readme_assets/mf5.PNG)
 
 #### API
 
-![alt text](./readme_assets/swaggerBE1.png)
+![alt text](./readme_assets/swaggerBE1.PNG)
 ![alt text](./readme_assets/swaggerBE2.png)
 
 #### DB
