@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <p>One image is worth a thousand words... please choose wisely ;-)</p>
+      <img
+        src="./assets/rock-paper-scissors-diagram.svg.png"
+        alt="Game instructions diagram"
+      />
+    </div>
+    <div class="column">
+      <h3>Computer play...</h3>
+      <container-element [ngSwitch]="systemPlay">
+        <img *ngSwitchCase="'ROCK'" src="./assets/rock.png" alt="Rock" />
+        <img *ngSwitchCase="'PAPER'" src="./assets/paper.png" alt="Paper" />
+        <img
+          *ngSwitchCase="'SCISSORS'"
+          src="./assets/scissors.png"
+          alt="Scissors"
+        />
+        <img
+          *ngSwitchDefault
+          src="./assets/computer_selection.gif"
+          alt="Scissors"
+        />
+      </container-element>
+    </div>
+    <div class="column">
+      <h3 *ngIf="userWins()">YOU WIN! 👍</h3>
+      <h3 *ngIf="userLose()">YOU LOSE! 👎</h3>
+      <h3 *ngIf="userTies()">IS A TIE! 👉 👈</h3>
+      <h3 *ngIf="waitingForPlayer()">Waiting for you ...</h3>
+      <button *ngIf="waitingForPlayer() === false" (click)="playAgainHandler()">
+        Play again
+      </button>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="complete_column">
+      <div class="selection_container">
+        <h3>Please Choose</h3>
+        <div class="option" id="rock_option">
+          <img
+            src="./assets/rock.png"
+            alt="Rock"
+            (click)="optionSelected(GAME_OPTIONS_ENUM.ROCK)"
+            [ngClass]="isRockSelected() ? 'selectedOption' : ''"
+          />
+        </div>
+        <div class="option" id="paper_option">
+          <img
+            src="./assets/paper.png"
+            alt="Paper"
+            (click)="optionSelected(GAME_OPTIONS_ENUM.PAPER)"
+            [ngClass]="isPaperSelected() ? 'selectedOption' : ''"
+          />
+        </div>
+        <div class="option" id="scissors_option">
+          <img
+            src="./assets/scissors.png"
+            alt="Scissors"
+            (click)="optionSelected(GAME_OPTIONS_ENUM.SCISSORS)"
+            [ngClass]="isScissorsSelected() ? 'selectedOption' : ''"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

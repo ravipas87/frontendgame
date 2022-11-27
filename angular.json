@@ -1,0 +1,251 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "yarn"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "game-core": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/game-core",
+      "sourceRoot": "projects/game-core/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/game-core",
+            "index": "projects/game-core/src/index.html",
+            "main": "projects/game-core/src/main.ts",
+            "polyfills": "projects/game-core/src/polyfills.ts",
+            "tsConfig": "projects/game-core/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/game-core/src/favicon.ico",
+              "projects/game-core/src/assets"
+            ],
+            "styles": ["projects/game-core/src/styles.scss"],
+            "scripts": [],
+            "extraWebpackConfig": "projects/game-core/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/game-core/src/environments/environment.ts",
+                  "with": "projects/game-core/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "projects/game-core/webpack.prod.config.js"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "game-core:build",
+            "extraWebpackConfig": "projects/game-core/webpack.config.js",
+            "port": 4200
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "game-core:build:production",
+              "extraWebpackConfig": "projects/game-core/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "game-core:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/game-core/src/test.ts",
+            "polyfills": "projects/game-core/src/polyfills.ts",
+            "tsConfig": "projects/game-core/tsconfig.spec.json",
+            "karmaConfig": "projects/game-core/karma.conf.js",
+            "assets": [
+              "projects/game-core/src/favicon.ico",
+              "projects/game-core/src/assets"
+            ],
+            "styles": ["projects/game-core/src/styles.scss"],
+            "scripts": [],
+            "extraWebpackConfig": "projects/game-core/webpack.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/game-core/tsconfig.app.json",
+              "projects/game-core/tsconfig.spec.json",
+              "projects/game-core/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/game-core/e2e/protractor.conf.js",
+            "devServerTarget": "game-core:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "game-core:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "game-stats": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/game-stats",
+      "sourceRoot": "projects/game-stats/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/game-stats",
+            "index": "projects/game-stats/src/index.html",
+            "main": "projects/game-stats/src/main.ts",
+            "polyfills": "projects/game-stats/src/polyfills.ts",
+            "tsConfig": "projects/game-stats/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/game-stats/src/favicon.ico",
+              "projects/game-stats/src/assets"
+            ],
+            "styles": ["projects/game-stats/src/styles.scss"],
+            "scripts": [],
+            "extraWebpackConfig": "projects/game-stats/webpack.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/game-stats/src/environments/environment.ts",
+                  "with": "projects/game-stats/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "extraWebpackConfig": "projects/game-stats/webpack.prod.config.js"
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "game-stats:build",
+            "extraWebpackConfig": "projects/game-stats/webpack.config.js",
+            "port": 4201
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "game-stats:build:production",
+              "extraWebpackConfig": "projects/game-stats/webpack.prod.config.js"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "game-stats:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/game-stats/src/test.ts",
+            "polyfills": "projects/game-stats/src/polyfills.ts",
+            "tsConfig": "projects/game-stats/tsconfig.spec.json",
+            "karmaConfig": "projects/game-stats/karma.conf.js",
+            "assets": [
+              "projects/game-stats/src/favicon.ico",
+              "projects/game-stats/src/assets"
+            ],
+            "styles": ["projects/game-stats/src/styles.scss"],
+            "scripts": [],
+            "extraWebpackConfig": "projects/game-stats/webpack.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/game-stats/tsconfig.app.json",
+              "projects/game-stats/tsconfig.spec.json",
+              "projects/game-stats/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/game-stats/e2e/protractor.conf.js",
+            "devServerTarget": "game-stats:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "game-stats:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "game-core"
+}
